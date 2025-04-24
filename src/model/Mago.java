@@ -10,10 +10,10 @@ public class Mago extends Magica implements Magico, Curable {
     private int sabiduria;
 
     // Constructor ______________________________________
-    public Mago(String nombre, int nivel, int salud, int mana, int sabiduria) {
-        super(nombre, nivel, salud);
-        this.mana = mana;
-        this.sabiduria = sabiduria;
+    public Mago(String nombre) {
+        super(nombre, 1, 60);
+        this.mana = 50;
+        this.sabiduria = 60;
     }
 
     // Métodos ____________________
@@ -25,6 +25,11 @@ public class Mago extends Magica implements Magico, Curable {
     @Override
     public void curar() {
         
+    }
+
+    @Override
+    public String toString() {
+        return "Mago [Nivel: " + super.getNivel() + "Salud: " + super.getSalud() + "Mana: " + this.mana + "Sabiduria: " + this.sabiduria + "]";
     }
 
     // Getters ____________________

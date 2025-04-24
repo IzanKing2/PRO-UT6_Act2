@@ -3,7 +3,7 @@ package model;
 // Clase Personaje que representa a un personaje en el juego
 // Esta es una clase abstracta que sirve como base para otros tipos de personajes
 // 🧑‍🤝‍🧑
-abstract class Personaje {
+public abstract class Personaje {
     // Atributos
     private String nombre;
     private int nivel;
@@ -58,4 +58,19 @@ abstract class Personaje {
             return false;
         return true;
     }
+
+    // Getters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public int getSalud() {
+        return salud;
+    }
+
+    
 }
