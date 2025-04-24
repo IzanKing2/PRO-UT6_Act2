@@ -1,9 +1,9 @@
-import model.Personaje;
 import model.Magica;
+import model.Mago;
 
 public class Main {
 
     public static void main(String[] args) {
-        Personaje magico = new Magica(null, 0, 0);
+        
     }
 }
