@@ -10,8 +10,8 @@ public class Mago extends Magica implements Magico, Curable {
     private int sabiduria;
 
     // Constructor ______________________________________
-    public Mago(String nombre, int mana, int sabiduria) {
-        super(nombre);
+    public Mago(String nombre, int nivel, int salud, int mana, int sabiduria) {
+        super(nombre, nivel, salud);
         this.mana = mana;
         this.sabiduria = sabiduria;
     }

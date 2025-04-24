@@ -4,13 +4,13 @@ package model;
 // 🧙‍♂️
 public class Magica extends Personaje{
     // Constructor
-    public Magica(String nombre) {
-        super(nombre);
+    public Magica(String nombre, int nivel, int salud) {
+        super(nombre, nivel, salud);
     }
 
     // Métodos
     @Override
-    public void atacar() {
-        
+    public void atacar(Personaje enemigo) {
+        System.out.println("Atacando... 🪄");
     }
 }

@@ -17,7 +17,7 @@ abstract class Personaje {
     }
 
     // Métodos
-    abstract public void atacar();
+    abstract public void atacar(Personaje enemigo);
 
     @Override
     public String toString() {

@@ -10,8 +10,8 @@ public class Hechicero extends Magica implements Magico, Defendible {
     private int concentracion;
 
     // Constructor __________________________________________________
-    public Hechicero(String nombre, int mana, int concentracion) {
-        super(nombre);
+    public Hechicero(String nombre, int nivel, int salud, int mana, int concentracion) {
+        super(nombre, nivel, salud);
         this.mana = mana;
         this.concentracion = concentracion;
     }
