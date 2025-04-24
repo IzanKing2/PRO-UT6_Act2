@@ -11,7 +11,7 @@ El proyecto está organizado en los siguientes paquetes y clases:
 - **VistaJuego**: 🕹️ Maneja la interfaz gráfica del juego, como menús y botones.
 
 ### 📦 `model`
-  **Juego**: 🎮 Clase Juego que representa el juego en sí y contiene la lógica principal del mismo
+- **Juego**: 🎮 Clase Juego que representa el juego en sí y contiene la lógica principal del mismo
 - **Personaje**: 🧑‍🤝‍🧑 Clase abstracta base para todos los personajes.
 - **Magico**: 🧙‍♂️ Clase que representa personajes mágicos.
   - **Mago**: 🧙‍♂️ Un personaje especializado en magia.
