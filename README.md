@@ -37,7 +37,7 @@ El proyecto está organizado en los siguientes paquetes y clases:
 ## 🚀 Cómo Ejecutar el Proyecto
 1. Clona este repositorio:  
    ```bash
-   git clone https://github.com/tu-usuario/PRO-UT6_Act2.git
+   git clone https://github.com/IzanKing2/PRO-UT6_Act2.git
    ```
 2. Abre el proyecto en tu IDE favorito (por ejemplo, IntelliJ IDEA o Eclipse).
 3. Ejecuta la clase `Main.java`.
