@@ -9,4 +9,12 @@ public class VistaJuego {
     public void imprimir(String mensaje) {
         System.out.println(mensaje);
     }
+
+    public void menu() {
+        imprimir("___MENU PRINCIPAL___");
+        imprimir("\t├── Ver personajes");
+        imprimir("\t├── Ver personajes");
+        imprimir("\t├── Ver personajes");
+        imprimir("\t├── Ver personajes");
+    }
 }

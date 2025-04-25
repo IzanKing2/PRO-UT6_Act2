@@ -16,6 +16,11 @@ public class Juego {
         turno = 1;
     }
 
+    // Métodos
+    public void mostrarAcciones(ArrayList<Personaje> personajes) {
+        
+    }
+
     // Getters
     public ArrayList<Personaje> getPersonajes() {
         return personajes;

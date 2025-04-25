@@ -13,4 +13,10 @@ public class Magica extends Personaje {
     public void atacar(Personaje enemigo) {
         System.out.println("Atacando... 🪄");
     }
+
+    @Override
+    public void subirNivel() {
+        super.setNivel(super.getNivel() + 1);
+        System.out.println("🎉 ¡Has subido de nivel! Nivel actual: " + super.getNivel());
+    }
 }

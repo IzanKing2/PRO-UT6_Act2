@@ -19,6 +19,8 @@ public abstract class Personaje {
     // Métodos
     abstract public void atacar(Personaje enemigo);
 
+    abstract public void subirNivel();
+
     @Override
     public String toString() {
         return "Personaje [nombre=" + nombre + ", nivel=" + nivel + ", salud=" + salud + "]";
@@ -70,6 +72,19 @@ public abstract class Personaje {
 
     public int getSalud() {
         return salud;
+    }
+
+    // Setters
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public void setSalud(int salud) {
+        this.salud = salud;
     }
 
     
