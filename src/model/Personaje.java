@@ -4,13 +4,17 @@ package model;
 // Esta es una clase abstracta que sirve como base para otros tipos de personajes
 // 🧑‍🤝‍🧑
 public abstract class Personaje {
-    // Atributos
+    // Constantes ______________________________________
+    private static final int NIVEL_MINIMO = 1;
+    private static final int NIVEL_MAXIMO = 60;
+
+    // Atributos _____________
     private String nombre;
     private int nivel;
     private int salud;
     private int daño;
 
-    // Constructor
+    // Constructor ________________________________________________________
     public Personaje(String nombre, int nivel, int salud, int daño) {
         this.nombre = nombre;
         this.nivel = nivel;
@@ -18,19 +22,33 @@ public abstract class Personaje {
         this.daño = daño;
     }
 
-    // Métodos
+    // Métodos ____________________________________________________________
+    /**
+     *  Método abstracto para atacar a otro personaje
+     *  @param enemigo el personaje enemigo al que se va a atacar
+     */
     abstract public void atacar(Personaje enemigo);
 
+    /**
+     *  Método abstracto para subir de nivel
+     */
     abstract public void subirNivel();
 
+    /**
+     *  Metodo para mostrar la información del personaje
+     *  @return una cadena con la información del personaje
+     */
     @Override
     public String toString() {
         return "Personaje [nombre=" + nombre + ", nivel=" + nivel + ", salud=" + salud + " daño=" + daño + "]";
     }
 
+    /**
+     *  Metodo hashCode para generar un código hash del objeto
+     *  @return un entero que representa el código hash del objeto
+     *  Se utiliza el nombre, nivel y salud del personaje para generar el código hash
+     */
     @Override
-    // hash code y equals para comparar objetos de tipo Personaje
-    // Se utiliza el nombre, nivel y salud para calcular el hash code y comparar la igualdad
     public int hashCode() {
         final int prime = 31;
         int result = 1;
@@ -40,9 +58,13 @@ public abstract class Personaje {
         return result;
     }
 
+    /**
+     *  Metodo equals para comparar dos objetos Personaje
+     *  @param obj el objeto a comparar
+     *  @return true si los objetos son iguales, false en caso contrario
+     *  Se compara el nombre, nivel y salud del personaje para determinar si son iguales
+     */
     @Override
-    // Método equals para comparar dos objetos de tipo Personaje
-    // Se compara el nombre, nivel y salud de ambos objetos
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -63,7 +85,7 @@ public abstract class Personaje {
         return true;
     }
 
-    // Getters
+    // Getters y Setters ____________________________
     public String getNombre() {
         return nombre;
     }
@@ -80,20 +102,39 @@ public abstract class Personaje {
         return salud;
     }
 
-    // Setters
     public void setNombre(String nombre) {
+        if (nombre == null || nombre.isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío.");
+        }
         this.nombre = nombre;
     }
 
+    /**
+     * Establece el nivel del personaje.
+     * @param nivel El nivel del personaje, debe estar entre 1 y 60.
+     * @throws IllegalArgumentException Si el nivel es menor que 1 o mayor que 60.
+     */
     public void setNivel(int nivel) {
+        if (nivel < NIVEL_MINIMO) {
+            throw new IllegalArgumentException("El nivel no puede ser menor que 1.");
+        }
+        if (nivel > NIVEL_MAXIMO) {
+            throw new IllegalArgumentException("El nivel no puede ser mayor que 60.");
+        }
         this.nivel = nivel;
     }
 
     public void setSalud(int salud) {
+        if (salud < 0) {
+            throw new IllegalArgumentException("La salud no puede ser menor que 0.");
+        }
         this.salud = salud;
     }
 
     public void setDaño(int daño) {
+        if (daño < 0) {
+            throw new IllegalArgumentException("El daño no puede ser menor que 0.");
+        }
         this.daño = daño;
     }
     
