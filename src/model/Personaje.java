@@ -22,7 +22,7 @@ public abstract class Personaje {
         this.daño = daño;
     }
 
-    // Métodos ____________________________________________________________
+    // Métodos Abstractos ______________________________________
     /**
      *  Método abstracto para atacar a otro personaje
      *  @param enemigo el personaje enemigo al que se va a atacar
@@ -30,10 +30,22 @@ public abstract class Personaje {
     abstract public void atacar(Personaje enemigo);
 
     /**
+     * Método abstracto para mostrar el menú de combate
+     */
+    abstract public void menuCombate();
+
+    /**
+     * Método abstracto para realizar una acción
+     * Este método se puede personalizar para realizar diferentes acciones
+     */
+    abstract public void realizarAccion(int opcion, Personaje enemigo);
+
+    /**
      *  Método abstracto para subir de nivel
      */
     abstract public void subirNivel();
 
+    // Métodos ____________________________________________________________
     /**
      *  Metodo para mostrar la información del personaje
      *  @return una cadena con la información del personaje
@@ -125,9 +137,6 @@ public abstract class Personaje {
     }
 
     public void setSalud(int salud) {
-        if (salud < 0) {
-            throw new IllegalArgumentException("La salud no puede ser menor que 0.");
-        }
         this.salud = salud;
     }
 

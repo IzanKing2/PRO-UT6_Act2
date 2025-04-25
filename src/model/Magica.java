@@ -21,6 +21,25 @@ public class Magica extends Personaje {
     }
 
     /**
+     * Método para mostrar el menú de combate
+     * Este método se puede personalizar para mostrar las opciones de combate
+     */
+    @Override
+    public void menuCombate() {
+        System.out.println("__MENÚ DE COMBATE MÁGICO__");
+    }
+
+    /**
+     *  Método para realizar una acción
+     *  Este método se puede personalizar para realizar diferentes acciones
+     */
+    @Override
+    public void realizarAccion(int opcion, Personaje enemigo) {
+        System.out.println("Realizando acción mágica...");
+        // Logica para realizar una accion
+    }
+
+    /**
      *  Método para subir de nivel
      *  Se incrementa el nivel del personaje en 1
      *  @throws IllegalArgumentException si el nivel es menor que 1 o mayor que 60

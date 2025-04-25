@@ -32,6 +32,21 @@ public class Hechicero extends Magica implements Magico, Defendible {
     }
 
     // Métodos _________________________________________________________________
+        /**
+     * Metodo para mostrar el menú de combate del mago.
+     * Este método muestra las opciones de combate disponibles para el mago.
+     * Incluye lanzar hechizos, atacar y curarse.
+     */
+    @Override
+    public void menuCombate() {
+        super.menuCombate();
+        System.out.println("├── 1. ⚔️ Atacar");
+        System.out.println("├── 2. ✨ Lanzar hechizo (Costo: " + COSTO_HECHIZO + " mana)");
+        System.out.println("├── 3. 🛡️ Defender (Costo: " + COSTO_DEFENSA + " concentración)");
+        System.out.println("└── 4. 🧙‍♂️ Invocar entidad (Costo: " + COSTO_HECHIZO + " mana y concentración)");
+        System.out.print("\nSelecciona una opción: ");
+    }
+
     /**
      *  Se defiende, reduciendo la concentración del hechicero.
      *  Si no tiene suficiente concentración, no puede defenderse.
@@ -47,6 +62,16 @@ public class Hechicero extends Magica implements Magico, Defendible {
             System.out.println("DEFENSA aplicada con exito");
             this.setSalud(this.getSalud() + defensa);
         }
+    }
+
+    /**
+     * Método toString para mostrar la información del hechicero.
+     * Muestra el nombre, nivel, salud, daño, mana y concentración.
+     */
+    @Override
+    public String toString() {
+        return "Hechicero [nombre=" + super.getNombre() + ", nivel=" + super.getNivel() + ", salud=" + super.getSalud() +
+                ", daño=" + super.getDaño() + ", mana=" + mana + ", concentración=" + concentracion + "]";
     }
 
     /**

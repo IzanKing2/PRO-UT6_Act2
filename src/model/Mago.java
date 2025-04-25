@@ -52,6 +52,53 @@ public class Mago extends Magica implements Magico, Curable {
     }
 
     /**
+     * Metodo para mostrar el menú de combate del mago.
+     * Este método muestra las opciones de combate disponibles para el mago.
+     * Incluye lanzar hechizos, atacar y curarse.
+     */
+    @Override
+    public void menuCombate() {
+        super.menuCombate();
+        System.out.println("├── 1. ⚔️ Atacar");
+        System.out.println("├── 2. ✨ Lanzar hechizo (costo: " + COSTO_HECHIZO + " mana)");
+        System.out.println("├── 3. 💗 Curar (costo: " + COSTO_CURACION + " sabiduría)");
+        System.out.println("├── 4. 🌟 Regenerar mana (costo: " + COSTO_CURACION + " sabiduría)");
+        System.out.println("└── 5. ⏭️ Pasar turno");
+        System.out.print("\nSeleccione una opción: ");
+    }
+
+    /**
+     * Método para realizar una acción en el combate.
+     * Este método se encarga de ejecutar la acción seleccionada por el jugador.
+     * @param opcion La opción seleccionada por el jugador
+     * @param enemigo El personaje enemigo al que se le va a atacar
+     */
+    @Override
+    public void realizarAccion(int opcion, Personaje enemigo) {
+        super.realizarAccion(opcion, enemigo);
+        switch (opcion) {
+            case 1: // Atacar
+                System.out.println("🗡️ Atacando...");
+                atacar(enemigo);
+                break;
+            case 2: // Lanzar hechizo
+                System.out.println("✨ Lanzando hechizo...");
+                lanzarHechizo(enemigo);
+                break;
+            case 3: // Curar
+                System.out.println("💗 Curando...");
+                break;
+            case 4: // Regenerar mana
+                System.out.println("🌟 Regenerando mana...");
+                regenerarMana();
+                break;
+            default: // Pasar turno
+                System.out.println("⏭️ Pasando turno...");
+                break;
+        }
+    }
+
+    /**
      *  Ataca a un enemigo, infligiendo daño y lanzando un hechizo.
      *  @param enemigo El personaje enemigo al que se le va a atacar
      */
@@ -79,14 +126,19 @@ public class Mago extends Magica implements Magico, Curable {
     }
 
     /**
-     *  Regenera el mana del mago, aumentando su cantidad de mana. Si el mana
-     *  excede el máximo, se limita al máximo.
+     *  Regenera mana, aumentando el mana del mago. Si no tiene suficiente sabiduría,
+     *  no puede regenerar mana.
      */
     public void regenerarMana() {
-        System.out.println("🔄 Regenerando mana...");
-        this.mana = limitarValor(this.mana + regeneracionMana, maxMana);
-        System.out.println("✅ Mana actual: " + this.mana);
-    }
+        if (this.sabiduria < COSTO_HECHIZO) {
+            System.out.println("❌ No tienes suficiente sabiduría para REGENERAR MANA.");
+        } else {
+            this.sabiduria -= COSTO_HECHIZO;
+            System.out.println("🔄 Regenerando mana...");
+            this.mana = limitarValor(this.mana + regeneracionMana, maxMana);
+            System.out.println("✅ Mana actual: " + this.mana);
+        }
+    }   
 
     /**
      *  Aumenta el nivel del mago, incrementando su salud máxima, mana y sabiduría.
