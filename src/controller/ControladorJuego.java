@@ -10,7 +10,7 @@ public class ControladorJuego {
     Juego juego = new Juego();
 
     // Métodos
-    public void crearPersonaje(String nombre, String tipoSeleccionado) {
+    public void crearPersonaje() {
         
     }
 }
