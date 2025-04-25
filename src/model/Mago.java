@@ -14,9 +14,10 @@ public class Mago extends Magica implements Magico, Curable {
     private int maxCuracion = 30;
     private int maxMana = 40;
     private int maxSalud = 50;
-    private int maxDaño = 20;
+    private int maxDaño = 8;
     private int maxSabiduria = 60;
     private int maxDañoHechizo = 25;
+    
     private int dañoHechizo;
     private int curacion;
     private int mana;
