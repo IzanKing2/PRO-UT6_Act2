@@ -8,12 +8,14 @@ public abstract class Personaje {
     private String nombre;
     private int nivel;
     private int salud;
+    private int daño;
 
     // Constructor
-    public Personaje(String nombre, int nivel, int salud) {
+    public Personaje(String nombre, int nivel, int salud, int daño) {
         this.nombre = nombre;
         this.nivel = nivel;
         this.salud = salud;
+        this.daño = daño;
     }
 
     // Métodos
@@ -23,7 +25,7 @@ public abstract class Personaje {
 
     @Override
     public String toString() {
-        return "Personaje [nombre=" + nombre + ", nivel=" + nivel + ", salud=" + salud + "]";
+        return "Personaje [nombre=" + nombre + ", nivel=" + nivel + ", salud=" + salud + " daño=" + daño + "]";
     }
 
     @Override
@@ -66,6 +68,10 @@ public abstract class Personaje {
         return nombre;
     }
 
+    public int getDaño() {
+        return daño;
+    }
+
     public int getNivel() {
         return nivel;
     }
@@ -87,5 +93,8 @@ public abstract class Personaje {
         this.salud = salud;
     }
 
+    public void setDaño(int daño) {
+        this.daño = daño;
+    }
     
 }

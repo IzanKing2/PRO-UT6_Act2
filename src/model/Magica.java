@@ -4,8 +4,8 @@ package model;
 // 🧙‍♂️
 public class Magica extends Personaje {
     // Constructor
-    public Magica(String nombre, int nivel, int salud) {
-        super(nombre, nivel, salud);
+    public Magica(String nombre, int nivel, int salud, int daño) {
+        super(nombre, nivel, salud, daño);
     }
 
     // Métodos
