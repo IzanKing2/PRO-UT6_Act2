@@ -17,12 +17,29 @@ public class Juego {
     }
 
     // Métodos
-    public void mostrarAcciones(ArrayList<Personaje> personajes) {
-        
+    /**
+     * Agrega un personaje al juego.
+     * @param personaje El personaje a agregar.
+     */
+    public void agregarPersonaje(Personaje personaje) {
+        personajes.add(personaje);
+        System.out.println("✅ Personaje " + personaje.getNombre() + " agregado al juego.");
     }
 
-    // Getters
+    // Getters y Setters
     public ArrayList<Personaje> getPersonajes() {
         return personajes;
+    }
+
+    public void setPersonajes(ArrayList<Personaje> personajes) {
+        this.personajes = personajes;
+    }
+
+    public int getTurno() {
+        return turno;
+    }
+
+    public void setTurno(int turno) {
+        this.turno = turno;
     }
 }

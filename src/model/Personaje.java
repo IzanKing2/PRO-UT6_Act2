@@ -5,8 +5,8 @@ package model;
 // 🧑‍🤝‍🧑
 public abstract class Personaje {
     // Constantes ______________________________________
-    private static final int NIVEL_MINIMO = 1;
-    private static final int NIVEL_MAXIMO = 60;
+    protected static final int NIVEL_MINIMO = 1;
+    protected static final int NIVEL_MAXIMO = 60;
 
     // Atributos _____________
     private String nombre;

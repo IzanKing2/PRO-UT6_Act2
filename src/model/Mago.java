@@ -57,9 +57,8 @@ public class Mago extends Magica implements Magico, Curable {
      */
     @Override
     public void atacar(Personaje enemigo) {
-        super.atacar(enemigo);
-        enemigo.setSalud(enemigo.getSalud() - maxDaño);
-        System.out.println("💘 Salud del enemigo: " + enemigo.getSalud());
+        super.atacar(enemigo); // Llama al método atacar de la clase padre
+        System.out.println("🪄 El mago lanza un hechizo para potenciar su ataque.");
     }
 
     /**

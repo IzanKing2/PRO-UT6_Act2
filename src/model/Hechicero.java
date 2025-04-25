@@ -50,8 +50,19 @@ public class Hechicero extends Magica implements Magico, Defendible {
     }
 
     /**
-     *  Lanza un hechizo, reduciendo el mana del hechicero.
-     *  @param enemigo El personaje enemigo al que se le va a lanzar el hechizo
+     *  Ataca a un enemigo, infligiendo daño y lanzando un hechizo.
+     *  @param enemigo El personaje enemigo al que se le va a atacar
+     */
+    @Override
+    public void atacar(Personaje enemigo) {
+        super.atacar(enemigo); // Llama al método atacar de la clase base
+        System.out.println("🪄 El hechicero usa magia para potenciar su ataque.");
+    }
+
+    /**
+     * Lanza un hechizo, reduciendo el mana del hechicero.
+     * Si no tiene suficiente mana, no puede lanzar el hechizo.
+     * @param enemigo El personaje enemigo al que se le va a lanzar el hechizo.
      */
     @Override
     public void lanzarHechizo(Personaje enemigo) {
@@ -141,6 +152,9 @@ public class Hechicero extends Magica implements Magico, Defendible {
     }
 
     public void setConcentracion(int concentracion) {
+        if (concentracion < 0 || concentracion > maxConcentracion) {
+            throw new IllegalArgumentException("La concentración debe estar entre 0 y " + maxConcentracion);
+        }
         this.concentracion = concentracion;
     }
 }
