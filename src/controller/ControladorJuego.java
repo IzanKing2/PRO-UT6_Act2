@@ -1,16 +1,14 @@
 package controller;
 
-import model.Personaje;
-import model.TipoPersonaje;
 import model.Juego;
 
 // 👀 Maneja el flujo entre el juego y lo que el usuario ve
 public class ControladorJuego {
-    // Atributos
-    Juego juego = new Juego();
+    // Atributos ____________
+    private Juego juego;
 
-    // Métodos
-    public void crearPersonaje() {
-        
+    // Constructor ____________________________
+    public ControladorJuego(Juego juego) {
+        this.juego = juego;
     }
 }
