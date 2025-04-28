@@ -47,6 +47,38 @@ public class Hechicero extends Magica implements Magico, Defendible {
         System.out.print("\nSelecciona una opción: ");
     }
 
+        /**
+     * Método para realizar una acción en el combate.
+     * Este método se encarga de ejecutar la acción seleccionada por el jugador.
+     * @param opcion La opción seleccionada por el jugador
+     * @param enemigo El personaje enemigo al que se le va a atacar
+     */
+    @Override
+    public void realizarAccion(int opcion, Personaje enemigo) {
+        super.realizarAccion(opcion, enemigo);
+        switch (opcion) {
+            case 1: // Atacar
+                System.out.println("Atacando...");
+                atacar(enemigo);
+                break;
+            case 2: // Lanzar hechizo
+                System.out.println("Lanzando hechizo...");
+                lanzarHechizo(enemigo);
+                break;
+            case 3: // Defender
+                System.out.println("Defendiendo...");
+                defender();
+                break;
+            case 4: // Invocar entidad
+                System.out.println("Invocando entidad...");
+                invocarEntidad();
+                break;
+            default: // Pasar turno
+                System.out.println("Pasando turno...");
+                break;
+        }
+    }
+
     /**
      *  Se defiende, reduciendo la concentración del hechicero.
      *  Si no tiene suficiente concentración, no puede defenderse.

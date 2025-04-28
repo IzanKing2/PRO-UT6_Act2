@@ -41,13 +41,13 @@ public class Mago extends Magica implements Magico, Curable {
      */
     @Override
     public void lanzarHechizo(Personaje enemigo) {
-        System.out.println("✨ Lanzando hechizo...");
+        System.out.println("Lanzando hechizo...");
         if (this.mana < COSTO_HECHIZO) {
-            System.out.println("❌ No tienes suficiente mana para LANZAR UN HECHIZO.");
+            System.out.println("No tienes suficiente mana para LANZAR UN HECHIZO.");
         } else {
             this.mana -= COSTO_HECHIZO;
             enemigo.setSalud(enemigo.getSalud() - dañoHechizo);
-            System.out.println("✅ Hechizo lanzado con éxito. Mana restante: " + this.mana);
+            System.out.println("Hechizo lanzado con éxito. Mana restante: " + this.mana);
         }
     }
 
@@ -59,11 +59,11 @@ public class Mago extends Magica implements Magico, Curable {
     @Override
     public void menuCombate() {
         super.menuCombate();
-        System.out.println("├── 1. ⚔️ Atacar");
-        System.out.println("├── 2. ✨ Lanzar hechizo (costo: " + COSTO_HECHIZO + " mana)");
-        System.out.println("├── 3. 💗 Curar (costo: " + COSTO_CURACION + " sabiduría)");
-        System.out.println("├── 4. 🌟 Regenerar mana (costo: " + COSTO_CURACION + " sabiduría)");
-        System.out.println("└── 5. ⏭️ Pasar turno");
+        System.out.println("├── 1. Atacar");
+        System.out.println("├── 2. Lanzar hechizo (costo: " + COSTO_HECHIZO + " mana)");
+        System.out.println("├── 3. Curar (costo: " + COSTO_CURACION + " sabiduría)");
+        System.out.println("├── 4. Regenerar mana (costo: " + COSTO_CURACION + " sabiduría)");
+        System.out.println("└── 5. Pasar turno");
         System.out.print("\nSeleccione una opción: ");
     }
 
@@ -78,22 +78,23 @@ public class Mago extends Magica implements Magico, Curable {
         super.realizarAccion(opcion, enemigo);
         switch (opcion) {
             case 1: // Atacar
-                System.out.println("🗡️ Atacando...");
+                System.out.println("Atacando...");
                 atacar(enemigo);
                 break;
             case 2: // Lanzar hechizo
-                System.out.println("✨ Lanzando hechizo...");
+                System.out.println("Lanzando hechizo...");
                 lanzarHechizo(enemigo);
                 break;
             case 3: // Curar
-                System.out.println("💗 Curando...");
+                System.out.println("Curando...");
+                curar();
                 break;
             case 4: // Regenerar mana
-                System.out.println("🌟 Regenerando mana...");
+                System.out.println("Regenerando mana...");
                 regenerarMana();
                 break;
             default: // Pasar turno
-                System.out.println("⏭️ Pasando turno...");
+                System.out.println("Pasando turno...");
                 break;
         }
     }
@@ -105,7 +106,7 @@ public class Mago extends Magica implements Magico, Curable {
     @Override
     public void atacar(Personaje enemigo) {
         super.atacar(enemigo); // Llama al método atacar de la clase padre
-        System.out.println("🪄 El mago lanza un hechizo para potenciar su ataque.");
+        System.out.println("El mago lanza un hechizo para potenciar su ataque.");
     }
 
     /**
@@ -115,13 +116,13 @@ public class Mago extends Magica implements Magico, Curable {
     @Override
     public void curar() {
         if (this.sabiduria < COSTO_CURACION) {
-            System.out.println("❌ No tienes suficiente mana para CURARTE.");
+            System.out.println("No tienes suficiente mana para CURARTE.");
         } else {
             this.sabiduria -= COSTO_CURACION;
-            System.out.println("🩹 Curando...");
+            System.out.println("Curando...");
             int nuevaSalud = limitarValor(super.getSalud() + curacion, maxSalud);
             super.setSalud(nuevaSalud);
-            System.out.println("✅ Salud actual: " + super.getSalud());
+            System.out.println("Salud actual: " + super.getSalud());
         }
     }
 
@@ -131,12 +132,12 @@ public class Mago extends Magica implements Magico, Curable {
      */
     public void regenerarMana() {
         if (this.sabiduria < COSTO_HECHIZO) {
-            System.out.println("❌ No tienes suficiente sabiduría para REGENERAR MANA.");
+            System.out.println("No tienes suficiente sabiduría para REGENERAR MANA.");
         } else {
             this.sabiduria -= COSTO_HECHIZO;
-            System.out.println("🔄 Regenerando mana...");
+            System.out.println("Regenerando mana...");
             this.mana = limitarValor(this.mana + regeneracionMana, maxMana);
-            System.out.println("✅ Mana actual: " + this.mana);
+            System.out.println("Mana actual: " + this.mana);
         }
     }   
 
@@ -177,7 +178,7 @@ public class Mago extends Magica implements Magico, Curable {
      */
     @Override
     public String toString() {
-        return "🧙‍♂️ Mago [nombre=" + super.getNombre() + ", nivel=" + super.getNivel() + ", salud=" + super.getSalud()
+        return "Mago [nombre=" + super.getNombre() + ", nivel=" + super.getNivel() + ", salud=" + super.getSalud()
                 + ", daño=" + super.getDaño() + ", mana=" + mana + ", sabiduría=" + sabiduria + "]";
     }
 
