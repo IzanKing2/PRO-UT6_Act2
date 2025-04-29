@@ -114,6 +114,10 @@ public abstract class Personaje {
         return salud;
     }
 
+    public String getTipo() {
+        return this.getClass().getSimpleName(); // Devuelve el nombre de la clase del personaje
+    }
+
     public void setNombre(String nombre) {
         if (nombre == null || nombre.isEmpty()) {
             throw new IllegalArgumentException("El nombre no puede ser nulo o vacío.");

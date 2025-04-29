@@ -11,10 +11,16 @@ public class VistaJuego {
     }
 
     public void menu() {
-        imprimir("___MENU PRINCIPAL___");
-        imprimir("\t├── Ver personajes");
-        imprimir("\t├── Ver personajes");
-        imprimir("\t├── Ver personajes");
-        imprimir("\t├── Ver personajes");
+        imprimir("\n┌──── MENU PRINCIPAL ───────────────────────┐");
+        imprimir("├── 1. Instrucciones del juego              │");
+        imprimir("├── 2. Iniciar juego                        │");
+        imprimir("├── 3. Salir del juego                      │");
+        imprimir("├── PERSONAJES ──────────────────────────── ┘");
+        imprimir("├── 4. Crear personaje                      │");
+        imprimir("├── 5. Ver personajes                       │");
+        imprimir("├── 6. Ver estadísticas de los personajes   │");
+        imprimir("├── JUEGO ───────────────────────────────── ┘");
+        imprimir("├── 7. Combatir                             │");
+        imprimir("└───────────────────────────────────────────┘");
     }
 }

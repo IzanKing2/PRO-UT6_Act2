@@ -18,6 +18,7 @@ public enum TipoPersonaje {
         }
     };
     //ASESINO,
-    //ARQUERO;
+    //ARQUERO,
+    //GUERRERO;
     public abstract Personaje crearPersonaje(TipoPersonaje tipo, String nombre);
 }

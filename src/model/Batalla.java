@@ -64,6 +64,7 @@ public class Batalla {
             } catch (Exception e) {
                 System.out.println("Entrada inválida. Por favor, ingresa un número.");
                 sc.nextLine(); // Limpiar el buffer en caso de error
+                leerOpcion(); // Llamar de nuevo al método para leer la opción
             }
         }
         return opcion;
@@ -76,10 +77,10 @@ public class Batalla {
      */
     private void determinarGanador(Personaje personaje1, Personaje personaje2) {
         if (personaje1.getSalud() <= 0) {
-            System.out.println("💀 " + personaje1.getNombre() + " ha sido derrotado!");
+            System.out.println(personaje1.getNombre() + " ha sido derrotado!");
             personaje2.subirNivel(); // El personaje 2 sube de nivel
         } else {
-            System.out.println("💀 " + personaje2.getNombre() + " ha sido derrotado!");
+            System.out.println(personaje2.getNombre() + " ha sido derrotado!");
             personaje1.subirNivel(); // El personaje 1 sube de nivel
         }
     }
