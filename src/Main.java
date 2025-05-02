@@ -30,5 +30,5 @@ public class Main {
             vistaJuego.imprimir("Presiona Enter para continuar...");
             scanner.nextLine();
         }
-    }
+    }  
 }

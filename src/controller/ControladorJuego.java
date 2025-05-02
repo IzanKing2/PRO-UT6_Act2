@@ -84,6 +84,11 @@ public class ControladorJuego {
             // Creando Hechicero
             case 2:
                 return TipoPersonaje.HECHICERO.crearPersonaje(TipoPersonaje.HECHICERO, nombre);
+            // Creando Guerrero
+            case 3:
+                return TipoPersonaje.GUERRERO.crearPersonaje(TipoPersonaje.GUERRERO, nombre);
+            case 4:
+                return TipoPersonaje.ARQUERO.crearPersonaje(TipoPersonaje.ARQUERO, nombre);
             // Agregar más casos para otros tipos de personajes
             // Por defecto, si no se selecciona un tipo válido, vuelve a llamar a crearPersonaje
             default:
