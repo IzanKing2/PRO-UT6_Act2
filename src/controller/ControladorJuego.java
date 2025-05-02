@@ -126,9 +126,8 @@ public class ControladorJuego {
      * - Opción 2: Iniciar juego
      * - Opción 3: Salir del juego
      * - Opción 4: Crear personaje
-     * - Opción 5: Ver personaje
-     * - Opción 6: Ver estadísticas de los personajes
-     * - Opción 7: Combatir
+     * - Opción 5: Ver estadísticas de los personajes
+     * - Opción 6: Combatir
      * Si la opción no es válida, vuelve a mostrar el menú principal.
      */
     public void leerOpcionMenuPrincipal() {
@@ -164,21 +163,13 @@ public class ControladorJuego {
                 System.out.println("Personaje creado: " + personaje.getNombre() + " (" + personaje.getTipo() + ")");
                 System.out.println("└────────────────────────────────────────────┘");
                 break;
-            case 5: // Ver personaje
-                System.out.println("\n┌──── VER PERSONAJE ────────────────────────┐");
-                if (!verificarJuegoIniciado()) return;
-                System.out.print("Ingrese el nombre del personaje: ");
-                String nombre = scanner.nextLine(); // Leer el nombre del personaje
-                verPersonaje(nombre);
-                System.out.println("└────────────────────────────────────────────┘");
-                break;
-            case 6: // Ver estadísticas de los personajes
+            case 5: // Ver estadísticas de los personajes
                 System.out.println("\n┌──── ESTADÍSTICAS DE LOS PERSONAJES ────────┐");
                 if (!verificarJuegoIniciado()) return;
                 mostrarPersonajesDisponibles(); // Muestra las estadísticas de todos los personajes
                 System.out.println("└────────────────────────────────────────────┘");
                 break;
-            case 7: // Combatir
+            case 6: // Combatir
                 System.out.println("\n┌──── COMBATE ──────────────────────────────┐");
                 if (!verificarJuegoIniciado()) return;
                 iniciarBatalla(); // Inicia la batalla entre los personajes
@@ -188,24 +179,6 @@ public class ControladorJuego {
                 System.out.println("\nOpción no válida. Intenta de nuevo.");
                 leerOpcionMenuPrincipal(); // Llama de nuevo al método para leer la opción
                 break;
-        }
-    }
-
-    /**
-     * Muestra las estadísticas de un personaje específico.
-     * Si el personaje no se encuentra, muestra un mensaje de error.
-     * @param nombre
-     */
-    public void verPersonaje(String nombre) {
-        try {
-            for (Personaje p : juego.getPersonajes()) {
-                if (p.getNombre().equalsIgnoreCase(nombre)) {
-                    vistaJuego.imprimir(p.toString()); // Muestra las estadísticas del personaje seleccionado
-                    return;
-                }
-            }
-        } catch (NullPointerException e) {
-            vistaJuego.imprimir("Error: No se encontró el personaje con nombre " + nombre);
         }
     }
 

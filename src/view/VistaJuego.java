@@ -17,10 +17,9 @@ public class VistaJuego {
         imprimir("├── 3. Salir del juego                      │");
         imprimir("├── PERSONAJES ──────────────────────────── ┘");
         imprimir("├── 4. Crear personaje                      │");
-        imprimir("├── 5. Ver personajes                       │");
-        imprimir("├── 6. Ver estadísticas de los personajes   │");
+        imprimir("├── 5. Ver estadísticas de los personajes   │");
         imprimir("├── JUEGO ───────────────────────────────── ┘");
-        imprimir("├── 7. Combatir                             │");
+        imprimir("├── 6. Combatir                             │");
         imprimir("└───────────────────────────────────────────┘");
     }
 }
