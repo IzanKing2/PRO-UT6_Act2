@@ -206,4 +206,28 @@ public class Mago extends Magica implements Magico, Curable {
         }
         this.sabiduria = sabiduria;
     }
+
+    public int getMaxSalud() {
+        return maxSalud;
+    }
+
+    public void setMaxSalud(int maxSalud) {
+        this.maxSalud = maxSalud;
+    }
+
+    public int getMaxMana() {
+        return maxMana;
+    }
+
+    public void setMaxMana(int maxMana) {
+        this.maxMana = maxMana;
+    }
+
+    public int getMaxSabiduria() {
+        return maxSabiduria;
+    }
+
+    public void setMaxSabiduria(int maxSabiduria) {
+        this.maxSabiduria = maxSabiduria;
+    }
 }
