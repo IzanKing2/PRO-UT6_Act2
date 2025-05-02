@@ -39,7 +39,5 @@ public class Fisico extends Personaje {
         System.out.println("🎉 ¡Has subido de nivel! Nivel actual: " + super.getNivel());
     }
 
-    
-    
 }
 
