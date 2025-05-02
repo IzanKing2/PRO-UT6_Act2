@@ -28,8 +28,13 @@ public enum TipoPersonaje {
         public Personaje crearPersonaje(TipoPersonaje tipo, String nombre) {
             return new  Arquero(nombre);
         }
+    },
+    ASESINO{
+        @Override
+        public Personaje crearPersonaje(TipoPersonaje tipo, String nombre) {
+            return new Asesino(nombre);
+        }
     };
-    //ASESINO,
     //GUERRERO;
     public abstract Personaje crearPersonaje(TipoPersonaje tipo, String nombre);
 }

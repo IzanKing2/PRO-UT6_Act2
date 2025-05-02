@@ -67,7 +67,8 @@ public class ControladorJuego {
         vistaJuego.imprimir("├── 1. Mago");
         vistaJuego.imprimir("├── 2. Hechicero");
         vistaJuego.imprimir("├── 3. Guerrero");
-        
+        vistaJuego.imprimir("├── 4. Arquero");
+        vistaJuego.imprimir("├── 5. Asesino");        
         // Poner aquí el resto de personajes
 
         System.out.print("\n- Tipo de personaje: ");
@@ -89,6 +90,8 @@ public class ControladorJuego {
                 return TipoPersonaje.GUERRERO.crearPersonaje(TipoPersonaje.GUERRERO, nombre);
             case 4:
                 return TipoPersonaje.ARQUERO.crearPersonaje(TipoPersonaje.ARQUERO, nombre);
+            case 5:
+                return TipoPersonaje.ASESINO.crearPersonaje(TipoPersonaje.ASESINO, nombre);
             // Agregar más casos para otros tipos de personajes
             // Por defecto, si no se selecciona un tipo válido, vuelve a llamar a crearPersonaje
             default:
