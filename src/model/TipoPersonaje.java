@@ -4,7 +4,13 @@ package model;
 // y contiene un método para crear personajes de cada tipo
 // 🧑‍🤝‍🧑
 public enum TipoPersonaje {
-    //GUERRERO,
+    GUERRERO {
+        @Override
+        public Personaje crearPersonaje(TipoPersonaje tipo, String nombre) {
+            return new Guerrero(nombre);
+        }
+    },
+
     HECHICERO {
         @Override
         public Personaje crearPersonaje(TipoPersonaje tipo, String nombre) {

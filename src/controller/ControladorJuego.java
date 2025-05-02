@@ -60,6 +60,8 @@ public class ControladorJuego {
         vistaJuego.imprimir("Elige un tipo de personaje:");
         vistaJuego.imprimir("├── 1. Mago");
         vistaJuego.imprimir("├── 2. Hechicero");
+        vistaJuego.imprimir("├── 3. Guerrero");
+        
         // Poner aquí el resto de personajes
 
         System.out.print("\n- Tipo de personaje: ");
