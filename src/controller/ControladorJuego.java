@@ -5,6 +5,7 @@ import model.Personaje;
 import model.TipoPersonaje;
 import view.VistaJuego;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ControladorJuego {
@@ -41,15 +42,20 @@ public class ControladorJuego {
 
     /**
      * Permite al usuario seleccionar los personajes para la batalla.
+     * @param personajes Lista de personajes disponibles.
+     * @return El personaje seleccionado por el usuario.
      */
-    private void seleccionarPersonajes() {
-        vistaJuego.imprimir("Selecciona el primer personaje:");
-        Personaje personaje1 = crearPersonaje();
-        vistaJuego.imprimir("Selecciona el segundo personaje:");
-        Personaje personaje2 = crearPersonaje();
-
-        juego.agregarPersonaje(personaje1);
-        juego.agregarPersonaje(personaje2);
+    private Personaje seleccionarPersonajes(ArrayList<Personaje> personajes) {
+        while (true) { // Bucle para asegurar una selección válida
+            System.out.print("Selecciona el personaje: ");
+            String nombre = scanner.nextLine(); // Leer el nombre del personaje
+            for (Personaje p : personajes) {
+                if (p.getNombre().equalsIgnoreCase(nombre)) {
+                    return p; // Retorna el personaje seleccionado
+                }
+            }
+            System.out.println("Personaje no encontrado. Intenta de nuevo.");
+        }
     }
 
     /**
@@ -95,8 +101,15 @@ public class ControladorJuego {
             return;
         }
 
-        Personaje personaje1 = juego.getPersonajes().get(0);
-        Personaje personaje2 = juego.getPersonajes().get(1);
+        mostrarPersonajesDisponibles();
+        Personaje personaje1 = seleccionarPersonajes(juego.getPersonajes());
+        mostrarPersonajesDisponibles();
+        Personaje personaje2 = seleccionarPersonajes(juego.getPersonajes());
+
+        if (personaje1 == null || personaje2 == null) { // Validación adicional (por seguridad)
+            vistaJuego.imprimir("Error al seleccionar personajes. Intenta de nuevo.");
+            return;
+        }
 
         vistaJuego.imprimir("Iniciando batalla entre " + personaje1.getNombre() + " y " + personaje2.getNombre() + "...");
         juego.iniciarBatalla(personaje1, personaje2);
@@ -157,9 +170,7 @@ public class ControladorJuego {
             case 6: // Ver estadísticas de los personajes
                 System.out.println("\n┌──── ESTADÍSTICAS DE LOS PERSONAJES ────────┐");
                 if (!verificarJuegoIniciado()) return;
-                for (Personaje p : juego.getPersonajes()) {
-                    vistaJuego.imprimir(p.toString()); // Muestra las estadísticas de cada personaje
-                }
+                mostrarPersonajesDisponibles(); // Muestra las estadísticas de todos los personajes
                 System.out.println("└────────────────────────────────────────────┘");
                 break;
             case 7: // Combatir
@@ -191,6 +202,18 @@ public class ControladorJuego {
         } catch (NullPointerException e) {
             vistaJuego.imprimir("Error: No se encontró el personaje con nombre " + nombre);
         }
+    }
+
+    /**
+     * Método para mostrar todos los personajes disponibles en el juego.
+     * Este método recorre la lista de personajes y muestra sus nombres y tipos.
+     */
+    public void mostrarPersonajesDisponibles() {
+        System.out.println("┌──── PERSONAJES ──────────────────────────────┐");
+        for (Personaje p : juego.getPersonajes()) {
+            vistaJuego.imprimir(p.toString()); // Muestra las estadísticas de cada personaje
+        }
+        System.out.println("└──────────────────────────────────────────────┘");
     }
 
     private int leerOpcion() {

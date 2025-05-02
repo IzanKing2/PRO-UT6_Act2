@@ -20,16 +20,16 @@ public class Batalla {
 
         // Mientras ambos personajes tengan salud, la batalla continúa ⚔️
         while (personaje1.getSalud() > 0 && personaje2.getSalud() > 0) {
-            if (turno == TURNO_PERSONAJE_1) {
-                System.out.println("Turno de " + personaje1.getNombre() + ":");
-                System.out.println(personaje1);
+            if (turno == TURNO_PERSONAJE_1) { // Turno del personaje 1
+                System.out.println("\n" + personaje1);
                 System.out.println(personaje2);
+                System.out.println("\nTurno de " + personaje1.getNombre() + ":");
                 ejecutarTurno(personaje1, personaje2);
                 turno = TURNO_PERSONAJE_2;
-            } else {
-                System.out.println("Turno de " + personaje2.getNombre() + ":");
-                System.out.println(personaje1);
+            } else { // Turno del personaje 2
+                System.out.println("\n" + personaje1);
                 System.out.println(personaje2);
+                System.out.println("\nTurno de " + personaje2.getNombre() + ":");
                 ejecutarTurno(personaje2, personaje1);
                 turno = TURNO_PERSONAJE_1;
             }
